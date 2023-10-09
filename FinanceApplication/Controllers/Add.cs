@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FinanceApplication.Database;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceApplication.Controllers
 {
     public class Add : Controller
     {
+        private readonly MVCdbdemo mvcdb;
         public IActionResult addindex()
         {
             return View();

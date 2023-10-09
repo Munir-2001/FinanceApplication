@@ -1,4 +1,7 @@
-﻿namespace FinanceApplication.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+
+namespace FinanceApplication.Models
 {
     public class domain
     {

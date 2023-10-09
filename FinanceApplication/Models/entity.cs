@@ -1,10 +1,13 @@
-﻿namespace FinanceApplication.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+
+namespace FinanceApplication.Models
 {
     public class entity
     {
-           private Guid tid {  get; set; }    
-           private string Name { get; set; }
-        private string Description { get; set; }
+        public Guid Id {  get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
     }
 }
