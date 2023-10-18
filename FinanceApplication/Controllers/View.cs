@@ -5,9 +5,9 @@ namespace FinanceApplication.Controllers
 {
     public class View : Controller
     {
-        public IActionResult Index()
+        public IActionResult addindex()
         {
-            return View();
+            return View("addview");
         }
     }
 }

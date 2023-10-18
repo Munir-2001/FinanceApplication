@@ -8,7 +8,7 @@ namespace FinanceApplication.Controllers
         private readonly MVCdbdemo mvcdb;
         public IActionResult addindex()
         {
-            return View();
+            return View("addindex");
         }
 
         public IActionResult addtrans() 
