@@ -8,9 +8,7 @@ namespace FinanceApplication.Database
     {
         public MVCdbdemo(DbContextOptions options) : base(options) { }
          public DbSet<domain> domain { get; set; }
-
         public DbSet<transaction> transaction { get; set; } 
-
         public DbSet<entity> entities { get; set; }
     } }
         

@@ -6,11 +6,11 @@ namespace FinanceApplication.Models
     public class transaction
     {
         public Guid Id { get; set; }
-    public string tratype { get; set; }
+        public string tratype { get; set; }//debit or credit
 
-        public entity entityfortrans { get; set; }
+        public Guid entityfortrans { get; set; }
 
-        public domain domainfortrans { get; set; }
+        public Guid domainfortrans { get; set; }
 
         public int amount { get; set; }
 

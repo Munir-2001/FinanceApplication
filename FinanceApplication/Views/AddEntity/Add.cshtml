@@ -1,0 +1,22 @@
+﻿@model FinanceApplication.Models.entity
+   
+@{
+}
+<form method="post" action="Add" class="mt-5">
+    <div class="form-group">
+        <label for="nameofentity">Name of the Entity</label>
+        <input type="text" asp-for="FirstName" class="form-control" id="nameofentity" aria-describedby="nameofentity" placeholder="Enter Entity First Name">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="nameofentity">Name of the Entity</label>
+        <input type="text" asp-for="LastName" class="form-control" id="nameofentity" aria-describedby="nameofentity" placeholder="Enter Entity Last Name">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="descriptionofentity">The relationship with the entity</label>
+        <input type="text" asp-for="Description"class="form-control" id="nameofentity" placeholder="Enter the relation with entity">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
