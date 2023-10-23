@@ -1,0 +1,31 @@
+﻿@model List<FinanceApplication.Models.entity>
+
+@{
+}
+
+<h1>These Are Existing Entities</h1>
+<table class="entity table">
+    <thead>
+        <tr>
+            <th>First Name of the Entity</th>
+            <th>Last Name of the Entity</th>
+            <th>Description of the Entity</th>
+        </tr>
+    <tbody>
+            @foreach (var entity in Model)
+            {
+            <tr>
+                <td>@entity.FirstName</td>
+                <td>@entity.LastName</td>
+                <td>@entity.Description</td>
+
+            </tr>
+
+            };
+    </tbody>
+    </thead>
+
+
+
+
+</table>

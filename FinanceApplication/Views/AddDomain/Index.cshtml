@@ -1,0 +1,32 @@
+﻿@model List<FinanceApplication.Models.domain>
+@{
+}
+
+<form method="post" class="searchdomain" asp-action="search">
+    <input type="text" name="searchdomain" />
+    <input type="submit" value="Search" />
+</form>
+<h1>These Are Existing Domains</h1>
+<table class="entity table">
+    <thead>
+        <tr>
+            <th>ID of domain</th>
+            <th>Name of the domain</th>
+        </tr>
+    <tbody>
+            @foreach (var domain in Model)
+            {
+            <tr>
+                <td>@domain.Id</td>
+                <td>@domain.Name</td>
+
+            </tr>
+
+            };
+    </tbody>
+    </thead>
+
+
+
+
+</table>

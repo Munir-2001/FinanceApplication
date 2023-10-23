@@ -1,0 +1,29 @@
+﻿@model List<FinanceApplication.Models.domain>
+
+@{
+}
+
+<h1>These Are Existing Domains</h1>
+<table class="domain table">
+    <thead>
+        <tr>
+            <th>Id of Domain</th>
+            <th>Name of the Domain</th>
+        </tr>
+    <tbody>
+            @foreach (var domain in Model)
+            {
+            <tr>
+                <td>@domain.Id</td>
+                <td>@domain.Name</td>
+
+            </tr>
+
+            };
+    </tbody>
+    </thead>
+
+
+
+
+</table>
