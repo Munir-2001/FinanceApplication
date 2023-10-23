@@ -27,7 +27,6 @@ namespace FinanceApplication.Controllers
         {
             var domains = await dbobj.domain.ToListAsync();
             return View(domains);
-
         }
         [HttpPost]
         public async Task<IActionResult> Add(domain domain) {
