@@ -2,8 +2,11 @@
 
 namespace FinanceApplication.Controllers
 {
-        private readonly MVCdbdemo dbobj;
-        
+    private readonly MVCdbdemo dbobj;
+    public AddTransController(MVCdbdemo dbobj)
+        {
+        this.dbobj=dbobj;
+        }    
     public class AddTransController : Controller
     {
         public IActionResult Add()
