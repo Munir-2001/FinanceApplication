@@ -10,6 +10,7 @@ namespace FinanceApplication.Controllers
     {
         public List<entity> searched {  get; set; }
         private readonly MVCdbdemo dbobj;
+        
         public async Task<IActionResult> search() { 
         var str = Request.Form["searchstring"];
         searched=await dbobj.entities.Where(x=> x.FirstName.Contains(str)).ToListAsync();
@@ -24,6 +25,7 @@ namespace FinanceApplication.Controllers
             return View(entities);
 
         }
+        [HttpGet]
         public IActionResult Add()
         {
             return View();
