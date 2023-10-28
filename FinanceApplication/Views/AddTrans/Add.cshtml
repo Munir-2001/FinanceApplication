@@ -1,22 +1,105 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@page
+@model FinanceApplication.Models.entitymodellists
+
 @{
+    <h1>@(ViewData["Title"] ?? "Default Title")</h1>
 }
 
-<form method="post" action="Add">
+<div class="container mt-5">
+    <form method="post" asp-page-handler="SubmitForm">
+        <div class="form-group">
+            <label for="entityies">Select Entity:</label>
+            <select class="form-control" id="entityselect" asp-for="entityview">
+                <option value="">Select...</option>
+                @foreach (var option in Model.entityview)
+                {
+                    <option value="@option.Id">@option.FirstName@option.LastName</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="model2Select">Select Domain:</label>
+            <select class="form-control" id="domainselect" asp-for="domainview">
+                <option value="">Select...</option>
+                @foreach (var option in Model.domainview)
+                {
+                    <option value="@option.Id">@option.Name</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+@* @model FinanceApplication.Models.transaction;
+
+<a href="../AddEntity"> View Existing Entities</a>
+
+@*
+@using (Html.BeginForm("YourActionName", "YourControllerName", FormMethod.Post, new { id = "paymentForm" }))
+{
+    <div class="container mt-5">
+        <div class="btn-group" role="group" aria-label="Select Payment Method">
+            <button type="button" class="btn btn-primary" data-value="debit">Debit</button>
+            <button type="button" class="btn btn-primary" data-value="credit">Credit</button>
+        </div>
+
+        <!-- Hidden input field to store the selected value -->
+        @Html.HiddenFor(model => model.tratype, new { id = "paymentMethodInput" })
+
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btn').click(function () {
+
+
+                // Enable only the clicked button
+                $(this).prop('disabled', false);
+
+                // Set the selected value in the hidden input field
+                $('#paymentMethodInput').val($(this).data('value'));
+            });
+        });
+    </script>
+}
+<form method="post" action="Add" class="mt-5">
     <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="tratype">Name of the Entity</label>
+        <input type="dropdown" asp-for="ent" class="form-control" id="tratype" aria-describedby="nameofentity" placeholder="Enter Entity First Name">
     </div>
+    <br />
+@*     @using (Html.BeginForm("Add", "AddTransController", FormMethod.Post, new { id = "paymentForm" }))
+    {
+
+    <div class="btn-group" role="group" aria-label="Select Payment Method" id="paymentMethodInput">
+            <button type="button" class="btn btn-primary" data-value="debit">Debit</button>
+            <button type="button" class="btn btn-primary" data-value="credit">Credit</button>
+        </div>
+
+        <!-- Hidden input field to store the selected value -->
+       <input asp-for="tratype" type="hidden" id="paymentMethodInput" />
+
+    <!-- Hidden input field to store the selected value -->
+     @Html.HiddenFor(model => model.tratype, new { id = "paymentMethodInput" })
+
+     <button type="submit" class="btn btn-primary mt-3">Submit</button>
+   </div>
+    }
     <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <label for="amount">Amount</label>
+        <input type="integer" asp-for="amount" class="form-control" id="nameofentity" aria-describedby="nameofentity" placeholder="Enter Amount">
     </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
+    <br />
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+ *@

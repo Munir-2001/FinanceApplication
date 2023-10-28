@@ -8,9 +8,10 @@ namespace FinanceApplication.Models
         public Guid Id { get; set; }
         public string tratype { get; set; }//debit or credit
 
-        public Guid entityfortrans { get; set; }
+        public string ent {get;set;}
 
-        public Guid domainfortrans { get; set; }
+        public string dom { get; set; }
+
 
         public int amount { get; set; }
 
