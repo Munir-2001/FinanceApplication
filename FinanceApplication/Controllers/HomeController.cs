@@ -19,6 +19,7 @@ namespace FinanceApplication.Controllers
             return View();
         }
 
+
         public IActionResult Privacy()
         {
             return View();
