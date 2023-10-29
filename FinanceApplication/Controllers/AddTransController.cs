@@ -39,10 +39,10 @@ namespace FinanceApplication.Controllers
             return View();
 
 
-            /*entitymodellists e = new entitymodellists();
+          /*  entitymodellists e = new entitymodellists();
             e.entityview = new List<SelectListItem>();
-            //e.domainview = new List<SelectListItem>();
-
+            e.domainview = new List<SelectListItem>();
+                
             var ent = dbobj.entities.ToList();
            // var dom = dbobj.domain.ToList();
             foreach(var item in ent)
