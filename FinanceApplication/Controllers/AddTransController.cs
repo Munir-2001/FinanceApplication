@@ -96,9 +96,9 @@ namespace FinanceApplication.Controllers
             }*/
 
                     // Return the view with the ViewModel
-                    return View("Add", ent);
+               /*     return View("Add", ent);
                 }
-        */
+        */*/
         /* public async Task OnGetAsync()
          {
              ViewModel = new entitymodellists
