@@ -37,6 +37,7 @@ namespace FinanceApplication.Controllers
             return domains;
         }*/
 
+
         //public entitymodellists ViewModel { get; set; }
 
 
