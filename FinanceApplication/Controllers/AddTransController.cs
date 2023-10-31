@@ -17,28 +17,66 @@ namespace FinanceApplication.Controllers
         {
             this.dbobj = dbobj;
         }
-        /*public IActionResult Add()
-        {
-            return View();
-        }*/
-        public entitymodellists ViewModel { get; set; }
 
-        /*public async Task<IActionResult> Add()
+
+        private List<entity> Getentity()
         {
-            ViewModel = new entitymodellists
-                {
-                    entityview = await dbobj.entities.ToListAsync(),
-                    domainview = await dbobj.domain.ToListAsync()
-                };
+            List<entity> ent = new List<entity>();
+            foreach (entity entity in dbobj.entities)
+            {
+                ent.Add(entity);
+            }
+            return ent;
 
             
-            return View(ViewModel);
-        }*/
-        public IActionResult Add()
+        }
+
+        private List<domain> Getdomain()
         {
-            return View();
+            List<domain> dom = new List<domain>();
+            foreach(domain d in dbobj.domain)
+            {
+                dom.Add(d);
+            }
+            return dom;
+
+        }
+        public ActionResult Index()
+        {
+            ViewBag.Message = "Welcome to my demo!";
+            dynamic mymodel = new ExpandoObject();
+            mymodel.domain = Getdomain();
+            mymodel.entities = Getentity();
+            return View(mymodel);
+        }
 
 
+
+
+
+    }
+    //public entitymodellists ViewModel { get; set; }
+    /*public IActionResult Add()
+    {
+        return View();
+    }*/
+
+    /*public async Task<IActionResult> Add()
+    {
+        ViewModel = new entitymodellists
+            {
+                entityview = await dbobj.entities.ToListAsync(),
+                domainview = await dbobj.domain.ToListAsync()
+            };
+
+
+        return View(ViewModel);
+    }*/
+   /* public IActionResult Add()
+    {
+        return View();
+    }
+*/
           /*  entitymodellists e = new entitymodellists();
             e.entityview = new List<SelectListItem>();
             e.domainview = new List<SelectListItem>();
@@ -83,7 +121,7 @@ namespace FinanceApplication.Controllers
 
             // Return the view with the ViewModel
 /*            return View(e);
-*/        }
+*/        
 
         /* public async Task OnGetAsync()
          {
@@ -94,5 +132,5 @@ namespace FinanceApplication.Controllers
              };
 
          }*/
-    }
+    //}
 }

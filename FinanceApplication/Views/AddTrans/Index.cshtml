@@ -1,0 +1,82 @@
+﻿@using FinanceApplication;
+@model dynamic
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<a href="../AddTransaction"> View Existing Transactions</a>
+<div class="form-group col-4">
+    <label for="issueinput6">category</label>
+    <select id="issueinput6" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+            data-title="Status">
+        @Html.DropDownList("accountid", new SelectList(ViewBag.Accounts, "AccountID", "AccountName"))
+
+            @foreach (var item in ViewBag["entities"] )
+        {
+
+            <option value="@item.Id">@item.FirstName</option>
+        }
+
+    </select>
+</div>
+
+
+@* <form method="post">
+    <select id="ddlFruits" name="FruitId" asp-items="@entity.FirstName">
+        <option value="0">Please select</option>
+    </select>
+    <input type="hidden" name="FruitName" />
+    <input type="submit" value="Submit" asp-page-handler="Submit" />
+</form> *@
+@* 
+<form method="post" action="AddDomainEntity" class="mt-5">
+    <div class="form-group">
+        <label for="nameofentity">Name of the Entity</label>
+        <input type="text" asp-for="entity" class="form-control" id="nameofentity" aria-describedby="nameofentity" placeholder="Enter Entity First Name">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="nameofentity">Name of the Entity</label>
+        <input type="text" asp-for="" class="form-control" id="nameofentity" aria-describedby="nameofentity" placeholder="Enter Entity Last Name">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="descriptionofentity">The relationship with the entity</label>
+        <input type="text" asp-for="Description" class="form-control" id="nameofentity" placeholder="Enter the relation with entity">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form> *@
+
+
+
+
+<p><b>Add a Transaction</b></p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Name</th>
+    </tr>
+    @foreach(domain d in Model.domain)
+    {
+        <tr>
+            <td>@d.Name</td>
+        </tr>
+    }
+</table>
+
+<p><b>Entity List</b></p>
+
+<table>
+    <tr>
+        <th>Entity Name</th>
+    </tr>
+    @foreach(entity e in Model.entities)
+    {
+        <tr>
+            <td>@e.FirstName+" "+@e.LastName</td>
+        </tr>
+    }
+</table>
