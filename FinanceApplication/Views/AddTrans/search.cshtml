@@ -1,0 +1,39 @@
+﻿@model List<FinanceApplication.Models.transaction>
+
+@{
+}
+<br />
+
+<h1>These Are Existing Entities</h1>
+<table class="entity table">
+    <thead>
+        <tr>
+            <th>Entity Name</th>
+            <th>Domain</th>
+            <th>Amount</th>
+            <th>Transaction Type</th>
+            <th>Date Time</th>
+
+        </tr>
+    <tbody>
+            @foreach (var t in Model)
+            {
+
+            <tr>
+                <td>@t.ent</td>
+                <td>@t.dom</td>
+                <td>@t.amount</td>
+                <td>@t.tratype</td>
+                <td>@t.dt</td>
+
+
+            </tr>
+
+            };
+    </tbody>
+    </thead>
+
+
+
+
+</table>
