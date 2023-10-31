@@ -3,6 +3,7 @@ using FinanceApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Dynamic;
 
 namespace FinanceApplication.Controllers
 {
@@ -89,6 +90,7 @@ namespace FinanceApplication.Controllers
                     Console.WriteLine(ent.entityview[0].FirstName);
                     Console.WriteLine(ent.domainview[0].Name);
 
+            }*/
 
                     // Return the view with the ViewModel
                     return View("Add", ent);
