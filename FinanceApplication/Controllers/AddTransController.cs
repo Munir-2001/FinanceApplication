@@ -13,6 +13,8 @@ namespace FinanceApplication.Controllers
         public List<transaction> searched { get; set; }
         public async Task<IActionResult> search()
         {
+
+
             var str = Request.Form["searchtransaction"];
             searched = await dbobj.transaction.Where(x => x.ent.Contains(str)).ToListAsync();
             return View(searched);
