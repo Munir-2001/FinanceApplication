@@ -1,0 +1,69 @@
+﻿@model List<FinanceApplication.Models.transaction>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<form method="post" class="searchtransaction" asp-action="search">
+    <input type="text" name="searchtransaction" />
+    <input type="submit" value="Search" />
+</form>
+<br />
+<h1>These Are Existing Entities</h1>
+<table class="entity table">
+    <thead>
+        <tr>
+            <th>Entity Name</th>
+            <th>Domain</th>
+            <th>Amount</th>
+            <th>Transaction Type</th>
+            <th>Date Time</th>
+
+        </tr>
+    <tbody>
+            @foreach (var t in Model)
+            {
+
+            <tr>
+                <td>@t.ent</td>
+                <td>@t.dom</td>
+                <td>@t.amount</td>
+                <td>@t.tratype</td>
+                <td>@t.dt</td>
+
+
+            </tr>
+
+            };
+    </tbody>
+    </thead>
+
+<p><b>Add a Transaction</b></p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Name</th>
+    </tr>
+    @foreach(domain d in Model.domain)
+    {
+        <tr>
+            <td>@d.Name</td>
+        </tr>
+    }
+</table>
+
+<p><b>Entity List</b></p>
+
+<table>
+    <tr>
+        <th>Entity Name</th>
+    </tr>
+    @foreach(entity e in Model.entities)
+    {
+        <tr>
+            <td>@e.FirstName+" "+@e.LastName</td>
+        </tr>
+    }
+</table>

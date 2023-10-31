@@ -10,6 +10,7 @@ namespace FinanceApplication.Database
         public DbSet<domain> domain { get; set; }
         public DbSet<transaction> transaction { get; set; } 
         public DbSet<entity> entities { get; set; }
+        public DbSet<entitymodellists> entitymodellists { get; set; }
         //entity class name and the entities is the dbset.
     } }
         

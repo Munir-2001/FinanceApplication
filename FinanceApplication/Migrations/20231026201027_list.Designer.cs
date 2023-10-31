@@ -4,6 +4,7 @@ using FinanceApplication.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinanceApplication.Migrations
 {
     [DbContext(typeof(MVCdbdemo))]
-    partial class MVCdbdemoModelSnapshot : ModelSnapshot
+    [Migration("20231026201027_list")]
+    partial class list
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,12 +35,7 @@ namespace FinanceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("entitymodellistsId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("entitymodellistsId");
 
                     b.ToTable("domain");
                 });
@@ -60,27 +58,9 @@ namespace FinanceApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("entitymodellistsId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("entitymodellistsId");
 
                     b.ToTable("entities");
-                });
-
-            modelBuilder.Entity("FinanceApplication.Models.entitymodellists", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.HasKey("Id");
-
-                    b.ToTable("entitymodellists");
                 });
 
             modelBuilder.Entity("FinanceApplication.Models.transaction", b =>
@@ -99,9 +79,6 @@ namespace FinanceApplication.Migrations
                     b.Property<DateTime>("dt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("eId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ent")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -112,41 +89,7 @@ namespace FinanceApplication.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("eId");
-
                     b.ToTable("transaction");
-                });
-
-            modelBuilder.Entity("FinanceApplication.Models.domain", b =>
-                {
-                    b.HasOne("FinanceApplication.Models.entitymodellists", null)
-                        .WithMany("domainview")
-                        .HasForeignKey("entitymodellistsId");
-                });
-
-            modelBuilder.Entity("FinanceApplication.Models.entity", b =>
-                {
-                    b.HasOne("FinanceApplication.Models.entitymodellists", null)
-                        .WithMany("entityview")
-                        .HasForeignKey("entitymodellistsId");
-                });
-
-            modelBuilder.Entity("FinanceApplication.Models.transaction", b =>
-                {
-                    b.HasOne("FinanceApplication.Models.entitymodellists", "e")
-                        .WithMany()
-                        .HasForeignKey("eId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("e");
-                });
-
-            modelBuilder.Entity("FinanceApplication.Models.entitymodellists", b =>
-                {
-                    b.Navigation("domainview");
-
-                    b.Navigation("entityview");
                 });
 #pragma warning restore 612, 618
         }
