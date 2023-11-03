@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MVCdbdemo>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MVCconnstring")));
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
