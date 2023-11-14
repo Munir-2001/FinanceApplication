@@ -9,19 +9,20 @@ namespace FinanceApplication.Controllers
 {
     public class AddTransController : Controller
     {
-        protected readonly MVCdbdemo dbobj;
+        public readonly MVCdbdemo dbobj;
         public List<transaction> searched { get; set; }
         public async Task<IActionResult> search()
         {
-
-
             var str = Request.Form["searchtransaction"];
             searched = await dbobj.transaction.Where(x => x.ent.Contains(str)).ToListAsync();
             return View(searched);
         }
         public AddTransController(MVCdbdemo dbobj)
         {
+            Console.WriteLine("Done");
+
             this.dbobj = dbobj;
+            Console.WriteLine("Done");
         }
 
         /*public async List<SelectListItem> getall()
@@ -43,7 +44,10 @@ namespace FinanceApplication.Controllers
 
         public async Task<IActionResult> Index()
         {
+            Console.WriteLine("Doneb4");
             var transactions = await dbobj.transaction.ToListAsync();
+            Console.WriteLine("Done");
+
             return View(transactions);
 
         }
@@ -52,13 +56,17 @@ namespace FinanceApplication.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
           {
-            EntityDomainViewModel v = new EntityDomainViewModel
+            Console.WriteLine("Done");
+
+            EntityDomainViewModel v = new EntityDomainViewModel()
             {
-                entitylist = await dbobj.entities.ToListAsync(),
+                entitylist = await dbobj.entities .ToListAsync(),
                 domainlist = await dbobj.domain.ToListAsync(),
             };
+            Console.WriteLine("Doneobjwctwrite");
 
-              return View(v);
+
+            return View(v);
           }
 
         [HttpPost]
@@ -98,7 +106,7 @@ namespace FinanceApplication.Controllers
                     // Return the view with the ViewModel
                /*     return View("Add", ent);
                 }
-        */*/
+        */
         /* public async Task OnGetAsync()
          {
              ViewModel = new entitymodellists

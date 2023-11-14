@@ -19,7 +19,7 @@ namespace FinanceApplication.Controllers
         {
         this.dbobj=dbobj;
         }
-        public async Task<IActionResult>Index(){
+        public async Task<IActionResult> Index(){
             var entities = await dbobj.entities.ToListAsync();
             return View(entities);
 
